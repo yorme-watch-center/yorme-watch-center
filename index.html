@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Yorme Watch Center - Store #22 Republic Bldg. Sta. Cruz Manila</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#f9fafb;color:#1f2937;line-height:1.5}
+.serif{font-family:'Playfair Display',serif}
+header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(6,78,59,0.1);height:68px;display:flex;align-items:center}
+.container{max-width:1280px;margin:0 auto;padding:0 20px;width:100%}
+.header-inner{display:flex;justify-content:space-between;align-items:center;width:100%}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-icon{height:36px;width:36px;border-radius:999px;background:#064e3b;display:grid;place-items:center;color:#fde68a;font-size:18px}
+.logo-title{font-weight:700;letter-spacing:0.12em;font-size:14px}
+.logo-sub{font-size:10px;letter-spacing:0.18em;color:#71717a}
+nav{display:flex;gap:24px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase}
+nav a{color:#3f3f46;text-decoration:none}
+nav a:hover{color:#064e3b}
+.btn-emerald{background:#064e3b;color:#fff;border-radius:999px;padding:8px 20px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;border:none;cursor:pointer}
+.btn-emerald:hover{background:#065f46}
+.btn-gold{background:#d4af37;color:#1f2937;border-radius:999px;padding:8px 20px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;border:none;cursor:pointer}
+#hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#064e3b 0%,#065f46 50%,#047857 100%);padding:40px 0 32px}
+#heroBg{position:absolute;inset:0;opacity:0.18;background-size:cover;background-position:center}
+.hero-content{position:relative;color:white}
+.hero-title{font-size:42px;line-height:1.05;max-width:700px}
+.hero-sub{margin-top:12px;color:rgba(255,255,255,0.7);max-width:600px;font-size:13px;line-height:1.6}
+.carousel-wrap{margin-top:32px;position:relative;overflow:hidden;border-radius:20px;border:1px solid rgba(255,255,255,0.1);background:rgba(0,0,0,0.2)}
+.carousel-track{display:flex;transition:transform 0.6s cubic-bezier(.4,0,.2,1)}
+.carousel-slide{min-width:100%;flex-shrink:0;padding:16px}
+.watch-card{background:white;border-radius:18px;overflow:hidden;display:grid;grid-template-columns:380px 1fr}
+.watch-card img{height:300px;width:100%;object-fit:cover}
+.watch-info{padding:24px}
+.watch-meta{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#71717a}
+.watch-name{font-size:22px;margin-top:4px}
+.watch-price{margin-top:8px;font-size:18px;font-weight:600;color:#064e3b}
+.watch-desc{margin-top:12px;font-size:12px;color:#52525b}
+.dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:8px}
+.dot{height:8px;width:8px;border-radius:999px;background:rgba(255,255,255,0.4);cursor:pointer}
+.dot.active{background:white}
+.arrow{height:40px;width:40px;border-radius:999px;border:none;display:grid;place-items:center;cursor:pointer;font-size:20px}
+.arrow.prev{background:rgba(255,255,255,0.1);color:white}
+.arrow.next{background:white;color:#064e3b}
+.grid-section{padding:48px 0;position:relative}
+#collectionBg,#aboutBg,#contactBg{position:absolute;inset:0;pointer-events:none;opacity:0.08;background-size:cover}
+.grid-header{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center}
+.search{height:36px;width:200px;border-radius:999px;border:1px solid #e4e4e7;padding:0 16px;font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px}
+.grid-card{border-radius:16px;border:1px solid #e4e4e7;background:white;overflow:hidden}
+.grid-card img{height:200px;width:100%;object-fit:cover}
+.grid-card-body{padding:16px}
+.reserveBtn{margin-top:12px;width:100%;border-radius:999px;background:#18181b;color:white;padding:8px;font-size:11px;text-transform:uppercase;letter-spacing:0.12em;border:none;cursor:pointer}
+.about-section{background:white;border-top:1px solid #e4e4e7;border-bottom:1px solid #e4e4e7;padding:48px 0;display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.about-box{background:#064e3b;color:white;border-radius:12px;padding:16px;margin-top:24px;font-size:12px}
+.about-box .label{color:#fde68a;text-transform:uppercase;letter-spacing:0.14em;font-size:10px}
+.contact-card{border:1px solid #e4e4e7;border-radius:16px;padding:24px;background:rgba(255,255,255,0.9);position:relative}
+footer{background:#064e3b;color:white;padding:32px 0;display:flex;justify-content:space-between;font-size:11px}
+footer .sub{color:rgba(255,255,255,0.6);margin-top:4px}
+.modal{position:fixed;inset:0;z-index:60;display:none}
+.modal.show{display:block}
+.modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,0.5)}
+.modal-content{position:relative;margin:5vh auto;width:94%;max-width:520px;border-radius:18px;background:white;padding:24px}
+.modal input,.modal select,.modal textarea{height:40px;width:100%;border:1px solid #e4e4e7;border-radius:10px;padding:0 12px;font-size:13px;margin-top:8px}
+.modal textarea{height:60px;padding:8px 12px;resize:none}
+.admin-login{position:fixed;inset:0;z-index:70;display:none}
+.admin-login.show{display:block}
+.admin-panel{position:fixed;inset:0;z-index:80;background:#f9fafb;overflow:auto;display:none}
+.admin-panel.show{display:block}
+.tabBtn{border-radius:999px;padding:8px 20px;font-size:11px;text-transform:uppercase;border:1px solid #e4e4e7;background:white;cursor:pointer}
+.tabBtn.active{background:#064e3b;color:white;border-color:#064e3b}
+.tab{display:none;margin-top:24px}
+.tab.show{display:block}
+.inv-row{display:flex;align-items:center;gap:12px;border:1px solid #e4e4e7;background:white;border-radius:12px;padding:12px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#064e3b;color:white;padding:12px 20px;border-radius:999px;font-size:12px;display:none;z-index:90}
+.toast.show{display:block}
+@media(max-width:800px){.watch-card{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.about-section{grid-template-columns:1fr}.hero-title{font-size:28px}nav{display:none}}
+</style>
+</head>
+<body>
+<header><div class="container"><div class="header-inner"><div class="logo" style="display:flex;align-items:center;gap:12px"><img src="data:image/png;base64,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" alt="YORME WATCH CENTER Logo" style="height:42px;width:auto;object-fit:contain;filter:drop-shadow(0 1px 2px rgba(0,0,0,0.3))"/><div><div class="logo-sub">STORE #22 REPUBLIC BLDG. STA. CRUZ MANILA</div></div></div><nav><a href="#collection">Collection</a><a href="#about">About</a><a href="#contact">Contact</a></nav><button id="adminBtn" class="btn-emerald">Admin</button></div></div></header>
+
+<section id="hero"><div id="heroBg"></div><div class="container hero-content"><div style="display:flex;justify-content:space-between;align-items:end;gap:16px"><div><h1 class="serif hero-title">Yorme Watch Center — Timeless Pieces, Authentically Yours</h1><p class="hero-sub">Curated authentic timepieces at Store #22 Republic Bldg. Sta. Cruz Manila. Every watch verified. Owned by Potch Ortega. Legit, negotiable, open for viewing.</p></div><div style="display:flex;gap:8px"><button id="prevBtn" class="arrow prev">‹</button><button id="nextBtn" class="arrow next">›</button></div></div><div class="carousel-wrap"><div id="carouselTrack" class="carousel-track"></div><div id="dots" class="dots"></div></div></div></section>
+
+<section class="grid-section"><div id="collectionBg"></div><div class="container"><div id="collection" class="grid-header"><h2 class="serif" style="font-size:28px">Collection — Yorme Watch Center</h2><div style="display:flex;gap:8px"><input id="searchInput" class="search" placeholder="Search watches..."/><select id="brandFilter" class="search" style="width:140px"><option value="">All Brands</option></select></div></div><div id="grid" class="grid"></div></div></section>
+
+<section id="about" class="about-section container"><div style="position:relative"><h3 class="serif" style="font-size:24px">Trusted Since Day One — Yorme Watch Center</h3><p id="aboutText" style="margin-top:16px;font-size:13px;color:#52525b;line-height:1.7"></p><div class="about-box"><div class="label">Official Location — Yorme Watch Center</div><div style="margin-top:4px;font-weight:600">Store #22 Republic Bldg. Sta., Cruz Manila</div><div id="hoursText" style="color:rgba(255,255,255,0.7);margin-top:4px"></div></div></div><div id="contact" style="position:relative"><div id="contactBg"></div><div class="contact-card"><h4 class="serif" style="font-size:18px">Visit Yorme Watch Center</h4><div style="margin-top:16px;display:grid;gap:12px;font-size:13px"><div><div style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#71717a">Address</div><div style="font-weight:600">Store #22 Republic Bldg. Sta., Cruz Manila</div></div><div><div style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#71717a">Hours</div><div id="hours2"></div></div><div><div style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#71717a">Contact</div><div id="phoneText"></div></div><a href="https://www.facebook.com/profile.php?id=61594399374519" target="_blank" class="btn-gold" style="display:inline-block;margin-top:8px;text-decoration:none;text-align:center">Facebook Page</a></div></div></div></section>
+
+<footer><div class="container" style="display:flex;justify-content:space-between"><div><div class="serif" style="letter-spacing:0.12em;font-size:14px">YORME WATCH CENTER</div><div class="sub">Store #22 Republic Bldg. Sta., Cruz Manila • © 2026</div></div><div class="sub">Emerald • Gold • White • Built for collectors</div></div></footer>
+
+<div id="bookModal" class="modal"><div class="modal-backdrop"></div><div class="modal-content"><div style="display:flex;justify-content:space-between"><h3 class="serif" style="font-size:18px">Reserve for Viewing — Yorme Watch Center</h3><button id="closeBook">✕</button></div><form id="bookForm" style="margin-top:16px;display:grid;gap:8px"><input required name="clientName" placeholder="Full Name *"/><input required name="phone" placeholder="Contact Number *"/><input name="fbName" placeholder="Facebook Name"/><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><input required type="date" name="date"/><input required type="time" name="time"/></div><select name="watchId" id="watchSelect"></select><textarea name="message" placeholder="Message"></textarea><button class="btn-emerald" style="width:100%;padding:10px">Confirm Reservation</button></form><div id="bookSuccess" style="display:none;margin-top:12px;background:#ecfdf5;border:1px solid #a7f3d0;padding:12px;border-radius:12px;font-size:12px;color:#064e3b">Reservation received! We'll confirm via Messenger or phone. Check Admin > Reservations.</div></div></div>
+
+<div id="adminLogin" class="admin-login"><div class="modal-backdrop"></div><div class="modal-content" style="max-width:360px;margin-top:15vh"><h3 class="serif">Admin — Yorme Watch Center</h3><input id="adminPassInput" type="password" placeholder="Password (default: yorme2024)" style="margin-top:16px"/><button id="adminLoginBtn" class="btn-emerald" style="width:100%;margin-top:12px;padding:11px">Login</button><button id="closeAdminLogin" style="width:100%;margin-top:8px;background:none;border:none;font-size:11px;color:#71717a;cursor:pointer">Close</button></div></div>
+
+<div id="adminPanel" class="admin-panel"><div style="position:sticky;top:0;background:white;border-bottom:1px solid #e4e4e7;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 20px"><div class="serif" style="font-weight:600">Admin — Yorme Watch Center • Store #22</div><button id="closeAdminPanel" class="tabBtn">Close</button></div><div class="container" style="padding:24px 20px"><div style="display:flex;gap:8px;flex-wrap:wrap"><button data-tab="inventory" class="tabBtn active">Inventory</button><button data-tab="reservations" class="tabBtn">Reservations</button><button data-tab="backgrounds" class="tabBtn">Backgrounds & Images</button><button data-tab="settings" class="tabBtn">Settings</button></div>
+
+<div id="tab-inventory" class="tab show"><div style="display:flex;justify-content:space-between"><h3 class="serif" style="font-size:18px">Inventory Manager — Edit Pictures & Details</h3><button id="addWatchBtn" class="btn-gold">+ Add Watch</button></div><div id="inventoryTable" style="margin-top:16px;display:grid;gap:12px"></div><form id="watchForm" style="display:none;margin-top:24px;border:1px solid #e4e4e7;background:white;border-radius:16px;padding:20px;display:grid;gap:12px"><h4 style="font-size:12px;text-transform:uppercase;letter-spacing:0.14em">Add / Edit Watch — Change Picture & Words</h4><input name="name" placeholder="Watch Name" required/><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><input name="brand" placeholder="Brand" required/><input name="price" type="number" placeholder="Price PHP" required/></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><select name="condition"><option>Brand New</option><option>Pre-owned</option><option>Like New</option></select><select name="stock"><option>In Stock</option><option>Reserved</option><option>Sold</option></select></div><input name="image" placeholder="Image URL — paste link to change picture (https://...)" required/><img id="watchPreview" style="height:128px;width:100%;object-fit:cover;border-radius:10px;display:none"/><textarea name="description" placeholder="Description — change words here"></textarea><div style="display:flex;gap:8px"><button class="btn-emerald">Save Watch</button><button type="button" id="cancelWatch" class="tabBtn">Cancel</button></div></form></div>
+
+<div id="tab-reservations" class="tab"><h3 class="serif" style="font-size:18px">Reservations — Client Booking</h3><div style="margin-top:4px;font-size:11px;color:#71717a"><span id="pendingCount">0</span> pending • <span id="confirmedCount">0</span> confirmed</div><div id="resTable" style="margin-top:16px;display:grid;gap:8px"></div></div>
+
+<div id="tab-backgrounds" class="tab"><h3 class="serif" style="font-size:18px">Backgrounds & Images — Add Pictures in Background</h3><p style="font-size:11px;color:#71717a;margin-top:4px">Paste any image URL from Facebook, Instagram, or your gallery. This edits the background pictures of the website.</p><div id="bgEditors" style="margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:16px"></div><div style="margin-top:24px"><h4 style="font-size:12px;text-transform:uppercase;letter-spacing:0.14em">Gallery — Add Pictures</h4><div id="galleryGrid" style="margin-top:8px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px"></div><div style="display:flex;gap:8px;margin-top:8px"><input id="newGalleryUrl" placeholder="Paste image URL to add to gallery" style="flex:1"/><button id="addGallery" class="btn-emerald">Add</button></div></div></div>
+
+<div id="tab-settings" class="tab"><h3 class="serif">Site Settings — Yorme Watch Center</h3><div style="margin-top:16px;display:grid;gap:12px;max-width:600px"><label style="font-size:11px;text-transform:uppercase">Hero Title<input id="setHeroTitle" style="margin-top:4px"/></label><label style="font-size:11px;text-transform:uppercase">About Text<textarea id="setAboutText" style="min-height:100px;margin-top:4px"></textarea></label><label style="font-size:11px;text-transform:uppercase">Hours<input id="setHours" style="margin-top:4px"/></label><label style="font-size:11px;text-transform:uppercase">Phone<input id="setPhone" style="margin-top:4px"/></label><button id="saveSettings" class="btn-emerald" style="width:fit-content">Save Settings</button><div style="border-top:1px solid #e4e4e7;padding-top:16px;margin-top:8px"><h4 style="font-size:12px;text-transform:uppercase">Change Admin Password</h4><input id="curPass" type="password" placeholder="Current" style="margin-top:8px"/><input id="newPass" type="password" placeholder="New password" style="margin-top:8px"/><button id="changePass" style="margin-top:8px;background:#854d0e;color:white;border-radius:999px;padding:8px 20px;border:none;font-size:11px;text-transform:uppercase;cursor:pointer">Update Password</button></div></div></div>
+
+</div></div>
+
+<div id="toast" class="toast">Saved</div>
+
+<script>
+const LS_INV='yorme_inventory', LS_RES='yorme_reservations', LS_SET='yorme_settings', LS_BG='yorme_backgrounds', LS_PASS='yorme_admin_pass';
+const NEW_ADDRESS="Store #22 Republic Bldg. Sta., Cruz Manila";
+const defaultWatches=[
+{name:"Submariner Date",brand:"Rolex",price:425000,condition:"Like New",stock:"In Stock",image:"https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=900&q=80",description:"40mm Oystersteel, ceramic bezel, complete box & papers."},
+{name:"Seamaster Diver 300M",brand:"Omega",price:185000,condition:"Pre-owned",stock:"In Stock",image:"https://images.unsplash.com/photo-1548169874-53e85f753f1e?w=900&q=80",description:"Co-Axial Master Chronometer, blue ceramic dial."},
+{name:"Presage Cocktail Time",brand:"Seiko",price:28500,condition:"Brand New",stock:"In Stock",image:"https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=900&q=80",description:"Sunburst cream dial, open heart exhibition."},
+{name:"G-Shock GA-2100",brand:"Casio",price:12000,condition:"Brand New",stock:"In Stock",image:"https://images.unsplash.com/photo-1548169874-53e85f753f1e?w=900&q=80",description:"The iconic octagonal slim case."},
+{name:"Carrera Calibre 5",brand:"Tag Heuer",price:210000,condition:"Pre-owned",stock:"In Stock",image:"https://images.unsplash.com/photo-1508685096489-7a65cded2bc3?w=900&q=80",description:"39mm automatic, silver sunray dial."}
+];
+const defaultSettings={heroTitle:"Yorme Watch Center — Timeless Pieces, Authentically Yours",heroSubtitle:"Curated authentic timepieces at Store #22 Republic Bldg. Sta. Cruz Manila. Every watch verified.",aboutText:`Yorme Watch Center is a family-owned boutique at ${NEW_ADDRESS} — built on one promise: authentic watches, honest deals. Owned by Potch Ortega, we specialize in legit checking, buying, selling, and trading pre-owned and brand-new timepieces. Price is negotiable. Viewing is open for serious collectors at our Sta. Cruz Manila location.`,hours:"Mon - Sat: 10:00 AM - 7:00 PM",phone:"0917 ••• •••• (Messenger Preferred)"};
+const defaultBGs={heroBg:{image:"",opacity:18,overlay:"emerald",position:"center",size:"cover"},collectionBg:{image:"",opacity:8,overlay:"gold-soft",position:"center",size:"cover"},aboutBg:{image:"",opacity:10,overlay:"emerald-soft",position:"center",size:"cover"},contactBg:{image:"",opacity:12,overlay:"none",position:"center",size:"cover"},gallery:["https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=900&q=80","https://images.unsplash.com/photo-1548169874-53e85f753f1e?w=900&q=80"]};
+function load(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch{return d}}
+function save(k,v){localStorage.setItem(k,JSON.stringify(v))}
+function getPass(){return localStorage.getItem(LS_PASS)||"yorme2024"}
+let inventory=load(LS_INV,defaultWatches.map((w,i)=>({...w,id:"w"+i})));
+let reservations=load(LS_RES,[]);
+let settings=load(LS_SET,defaultSettings);
+let bgs=load(LS_BG,defaultBGs);
+if(!localStorage.getItem(LS_INV)) save(LS_INV,inventory);
+function peso(n){return "₱"+Number(n).toLocaleString('en-PH')}
+let currentSlide=0;
+function overlayColor(o){const m={none:"transparent",emerald:"rgba(6,78,59,0.62)","emerald-soft":"rgba(6,78,59,0.18)",gold:"rgba(212,175,55,0.38)","gold-soft":"rgba(212,175,55,0.12)",black:"rgba(0,0,0,0.48)",white:"rgba(255,255,255,0.55)"};return m[o]||"transparent"}
+function applyBGs(){
+ const setBg=(el,bg)=>{if(!el) return; if(bg.image){el.style.backgroundImage=`url('${bg.image}')`; el.style.backgroundPosition=bg.position; el.style.backgroundSize=bg.size; el.style.opacity=String(bg.opacity/100); el.style.backgroundColor=overlayColor(bg.overlay); el.style.backgroundBlendMode=bg.overlay!=='none'?'overlay':'normal'}else{el.style.backgroundImage=''; el.style.opacity='1'; el.style.backgroundColor='transparent'}};
+ setBg(document.getElementById('heroBg'),bgs.heroBg);
+ setBg(document.getElementById('collectionBg'),bgs.collectionBg);
+ setBg(document.getElementById('aboutBg'),bgs.aboutBg);
+ setBg(document.getElementById('contactBg'),bgs.contactBg);
+}
+function renderCarousel(){
+ const track=document.getElementById('carouselTrack'); track.innerHTML='';
+ inventory.forEach((w,i)=>{
+  const div=document.createElement('div'); div.className='carousel-slide';
+  div.innerHTML=`<div class="watch-card"><img src="${w.image}" onerror="this.src='https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=900'"/><div class="watch-info"><div class="watch-meta">${w.brand} • ${w.condition} • ${w.stock}</div><div class="serif watch-name">Yorme Watch Center — ${w.name}</div><div class="watch-price">${peso(w.price)}</div><div class="watch-desc">${w.description}</div><button data-id="${w.id}" class="reserveBtn" style="margin-top:16px;width:auto;padding:10px 24px;background:#064e3b">Reserve for Viewing</button><div style="margin-top:12px;font-size:10px;color:#71717a">📍 ${NEW_ADDRESS}</div></div></div>`;
+  track.appendChild(div);
+ });
+ const dots=document.getElementById('dots'); dots.innerHTML=''; inventory.forEach((_,i)=>{const d=document.createElement('div'); d.className=`dot ${i===currentSlide?'active':''}`; d.onclick=()=>{currentSlide=i; updateSlide()}; dots.appendChild(d)});
+ updateSlide(); bindReserve();
+}
+function updateSlide(){document.getElementById('carouselTrack').style.transform=`translateX(-${currentSlide*100}%)`; document.querySelectorAll('.dot').forEach((d,i)=>{d.className=`dot ${i===currentSlide?'active':''}`})}
+function renderGrid(){
+ const grid=document.getElementById('grid'); const search=document.getElementById('searchInput').value.toLowerCase(); const brand=document.getElementById('brandFilter').value;
+ let list=inventory.filter(w=>{const s=w.name.toLowerCase().includes(search)||w.brand.toLowerCase().includes(search); const b=!brand||w.brand===brand; return s&&b});
+ grid.innerHTML=''; list.forEach(w=>{
+  const card=document.createElement('div'); card.className='grid-card';
+  card.innerHTML=`<img src="${w.image}" onerror="this.src='https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=900'"/><div class="grid-card-body"><div style="font-size:10px;text-transform:uppercase;letter-spacing:0.14em;color:#71717a">${w.brand}</div><div class="serif" style="font-size:16px">Yorme Watch Center — ${w.name}</div><div style="font-size:13px;font-weight:600;color:#064e3b">${peso(w.price)} • ${w.stock}</div><button data-id="${w.id}" class="reserveBtn">Reserve for Viewing</button></div>`;
+  grid.appendChild(card);
+ });
+ const bf=document.getElementById('brandFilter'); const brands=[...new Set(inventory.map(w=>w.brand))]; const cur=bf.value; bf.innerHTML='<option value="">All Brands</option>'+brands.map(b=>`<option>${b}</option>`).join(''); bf.value=cur;
+ bindReserve();
+}
+function bindReserve(){document.querySelectorAll('.reserveBtn').forEach(btn=>{btn.onclick=()=>openBook(btn.dataset.id)})}
+function openBook(id){const w=inventory.find(x=>x.id===id); document.getElementById('watchSelect').innerHTML=inventory.map(x=>`<option value="${x.id}" ${x.id===id?'selected':''}>${x.brand} - ${x.name}</option>`).join(''); document.getElementById('bookModal').classList.add('show'); document.getElementById('bookSuccess').style.display='none'}
+document.getElementById('closeBook').onclick=()=>document.getElementById('bookModal').classList.remove('show');
+document.getElementById('bookModal').querySelector('.modal-backdrop').onclick=()=>document.getElementById('bookModal').classList.remove('show');
+document.getElementById('bookForm').onsubmit=(e)=>{
+ e.preventDefault(); const fd=new FormData(e.target); const watchId=fd.get('watchId'); const watch=inventory.find(w=>w.id===watchId);
+ const res={id:'r'+Date.now(),clientName:fd.get('clientName'),phone:fd.get('phone'),fbName:fd.get('fbName'),date:fd.get('date'),time:fd.get('time'),watchId,watchName:watch?watch.name:'',message:fd.get('message'),status:'pending',createdAt:new Date().toISOString()};
+ reservations.unshift(res); save(LS_RES,reservations); e.target.reset(); document.getElementById('bookSuccess').style.display='block'; toast('Reservation saved!'); renderAdminRes();
+};
+document.getElementById('adminBtn').onclick=()=>document.getElementById('adminLogin').classList.add('show');
+document.getElementById('closeAdminLogin').onclick=()=>document.getElementById('adminLogin').classList.remove('show');
+document.getElementById('adminLogin').querySelector('.modal-backdrop').onclick=()=>document.getElementById('adminLogin').classList.remove('show');
+document.getElementById('adminLoginBtn').onclick=()=>{
+ const p=document.getElementById('adminPassInput').value; if(p===getPass()){document.getElementById('adminLogin').classList.remove('show'); document.getElementById('adminPanel').classList.add('show'); renderInventoryAdmin(); renderAdminRes(); renderBgEditors(); loadSettingsForm();} else alert('Wrong password');
+};
+document.getElementById('closeAdminPanel').onclick=()=>document.getElementById('adminPanel').classList.remove('show');
+document.querySelectorAll('.tabBtn[data-tab]').forEach(b=>{b.onclick=()=>{document.querySelectorAll('.tabBtn[data-tab]').forEach(x=>x.classList.remove('active')); b.classList.add('active'); document.querySelectorAll('.tab').forEach(t=>t.classList.remove('show')); document.getElementById('tab-'+b.dataset.tab).classList.add('show')}});
+function renderInventoryAdmin(){const t=document.getElementById('inventoryTable'); t.innerHTML=''; inventory.forEach(w=>{const row=document.createElement('div'); row.className='inv-row'; row.innerHTML=`<img src="${w.image}" style="height:48px;width:48px;border-radius:8px;object-fit:cover"/><div style="flex:1"><div style="font-size:12px;font-weight:600">Yorme Watch Center — ${w.name}</div><div style="font-size:11px;color:#71717a">${w.brand} • ${peso(w.price)}</div></div><button onclick="editWatch('${w.id}')" class="tabBtn">Edit</button><button onclick="deleteWatch('${w.id}')" class="tabBtn">Delete</button>`; t.appendChild(row)});}
+let editingId=null;
+document.getElementById('addWatchBtn').onclick=()=>{editingId=null; document.getElementById('watchForm').style.display='grid'; document.getElementById('watchForm').reset(); document.getElementById('watchPreview').style.display='none'};
+document.getElementById('cancelWatch').onclick=()=>{document.getElementById('watchForm').style.display='none'; editingId=null};
+document.getElementById('watchForm').oninput=(e)=>{if(e.target.name==='image'){const url=e.target.value; const img=document.getElementById('watchPreview'); if(url){img.src=url; img.style.display='block'} else img.style.display='none'}};
+document.getElementById('watchForm').onsubmit=(e)=>{
+ e.preventDefault(); const fd=new FormData(e.target); const obj={id:editingId||'w'+Date.now(),name:fd.get('name'),brand:fd.get('brand'),price:Number(fd.get('price')),condition:fd.get('condition'),stock:fd.get('stock'),image:fd.get('image'),description:fd.get('description')};
+ if(editingId){inventory=inventory.map(w=>w.id===editingId?obj:w)} else inventory.unshift(obj);
+ save(LS_INV,inventory); renderCarousel(); renderGrid(); renderInventoryAdmin(); e.target.style.display='none'; toast('Inventory updated — picture & words saved'); editingId=null;
+};
+window.editWatch=(id)=>{const w=inventory.find(x=>x.id===id); if(!w) return; editingId=id; const f=document.getElementById('watchForm'); f.style.display='grid'; f.name.value=w.name; f.brand.value=w.brand; f.price.value=w.price; f.condition.value=w.condition; f.stock.value=w.stock; f.image.value=w.image; f.description.value=w.description; document.getElementById('watchPreview').src=w.image; document.getElementById('watchPreview').style.display='block'};
+window.deleteWatch=(id)=>{if(!confirm('Delete this watch?')) return; inventory=inventory.filter(w=>w.id!==id); save(LS_INV,inventory); renderCarousel(); renderGrid(); renderInventoryAdmin(); toast('Deleted')};
+function renderAdminRes(){const el=document.getElementById('resTable'); const pc=document.getElementById('pendingCount'); const cc=document.getElementById('confirmedCount'); if(!el) return; el.innerHTML=''; reservations.forEach(r=>{const div=document.createElement('div'); div.style.cssText='border:1px solid #e4e4e7;background:white;border-radius:12px;padding:12px;display:flex;justify-content:space-between'; div.innerHTML=`<div><div style="font-size:12px;font-weight:600">${r.clientName} • ${r.phone}</div><div style="font-size:11px;color:#71717a">${r.watchName} • ${r.date} ${r.time} • ${r.status}</div><div style="font-size:11px">${r.fbName||''} ${r.message||''}</div></div><div style="display:flex;flex-direction:column;gap:4px"><button onclick="updateRes('${r.id}','confirmed')" class="tabBtn" style="font-size:10px">Confirm</button><button onclick="updateRes('${r.id}','completed')" class="tabBtn" style="font-size:10px">Complete</button><button onclick="deleteRes('${r.id}')" class="tabBtn" style="font-size:10px">Delete</button></div>`; el.appendChild(div)}); if(pc) pc.textContent=reservations.filter(r=>r.status==='pending').length; if(cc) cc.textContent=reservations.filter(r=>r.status==='confirmed').length; }
+window.updateRes=(id,st)=>{reservations=reservations.map(r=>r.id===id?{...r,status:st}:r); save(LS_RES,reservations); renderAdminRes(); toast('Reservation '+st)};
+window.deleteRes=(id)=>{reservations=reservations.filter(r=>r.id!==id); save(LS_RES,reservations); renderAdminRes(); toast('Deleted')};
+function renderBgEditors(){
+ const container=document.getElementById('bgEditors'); container.innerHTML='';
+ const keys=[['heroBg','Hero Background'],['collectionBg','Collection Background'],['aboutBg','About Background'],['contactBg','Contact Background']];
+ keys.forEach(([key,label])=>{
+  const bg=bgs[key]; const div=document.createElement('div'); div.style.cssText='border:1px solid #e4e4e7;background:white;border-radius:12px;padding:16px';
+  div.innerHTML=`<div style="font-size:11px;text-transform:uppercase;letter-spacing:0.14em;font-weight:600">${label}</div><input data-key="${key}" data-field="image" value="${bg.image}" placeholder="Paste image URL to change background picture" style="margin-top:8px;width:100%;height:36px;border:1px solid #e4e4e7;border-radius:10px;padding:0 12px;font-size:11px"/><img src="${bg.image}" style="margin-top:8px;height:80px;width:100%;object-fit:cover;border-radius:8px;${bg.image?'':'display:none'}"/><div style="margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:8px"><label style="font-size:10px">Opacity <input data-key="${key}" data-field="opacity" type="range" min="0" max="100" value="${bg.opacity}" style="width:100%"/></label><select data-key="${key}" data-field="overlay" style="height:32px;border:1px solid #e4e4e7;border-radius:8px;font-size:11px"><option value="none" ${bg.overlay==='none'?'selected':''}>No Overlay</option><option value="emerald" ${bg.overlay==='emerald'?'selected':''}>Emerald</option><option value="emerald-soft" ${bg.overlay==='emerald-soft'?'selected':''}>Emerald Soft</option><option value="gold" ${bg.overlay==='gold'?'selected':''}>Gold</option><option value="gold-soft" ${bg.overlay==='gold-soft'?'selected':''}>Gold Soft</option><option value="black" ${bg.overlay==='black'?'selected':''}>Black</option></select></div><div style="margin-top:8px"><button data-clear="${key}" style="font-size:10px;border:1px solid #e4e4e7;border-radius:999px;padding:4px 12px;background:white;cursor:pointer">Remove / Reset</button></div>`;
+  container.appendChild(div);
+ });
+ container.querySelectorAll('input,select').forEach(el=>{el.onchange=(e)=>{const k=e.target.dataset.key; const f=e.target.dataset.field; let v=e.target.value; if(f==='opacity') v=Number(v); bgs[k][f]=v; save(LS_BG,bgs); applyBGs(); if(f==='image'){const img=el.parentElement.querySelector('img'); if(img){img.src=v; img.style.display=v?'block':'none'}}; toast('Background updated')}});
+ container.querySelectorAll('[data-clear]').forEach(b=>{b.onclick=()=>{const k=b.dataset.clear; bgs[k].image=''; bgs[k].opacity=k==='heroBg'?18:10; save(LS_BG,bgs); renderBgEditors(); applyBGs(); toast('Background reset')}});
+ const gallery=document.getElementById('galleryGrid'); gallery.innerHTML=''; bgs.gallery.forEach((url,i)=>{const d=document.createElement('div'); d.style.position='relative'; d.innerHTML=`<img src="${url}" style="height:64px;width:100%;object-fit:cover;border-radius:8px"/><button data-idx="${i}" style="position:absolute;top:4px;right:4px;height:20px;width:20px;border-radius:999px;background:rgba(0,0,0,0.6);color:white;border:none;font-size:10px;cursor:pointer">✕</button><button data-use="${url}" style="position:absolute;bottom:4px;left:4px;font-size:9px;background:white;border-radius:999px;padding:2px 8px;border:none;cursor:pointer">Use</button>`; gallery.appendChild(d)});
+ gallery.querySelectorAll('[data-idx]').forEach(b=>b.onclick=()=>{bgs.gallery.splice(Number(b.dataset.idx),1); save(LS_BG,bgs); renderBgEditors();});
+ gallery.querySelectorAll('[data-use]').forEach(b=>b.onclick=()=>{const url=b.dataset.use; bgs.heroBg.image=url; save(LS_BG,bgs); renderBgEditors(); applyBGs(); toast('Set as Hero BG')});
+}
+document.getElementById('addGallery').onclick=()=>{const url=document.getElementById('newGalleryUrl').value.trim(); if(!url) return; bgs.gallery.unshift(url); save(LS_BG,bgs); document.getElementById('newGalleryUrl').value=''; renderBgEditors(); toast('Added to gallery')};
+function loadSettingsForm(){document.getElementById('setHeroTitle').value=settings.heroTitle; document.getElementById('setAboutText').value=settings.aboutText; document.getElementById('setHours').value=settings.hours; document.getElementById('setPhone').value=settings.phone;}
+document.getElementById('saveSettings').onclick=()=>{settings.heroTitle=document.getElementById('setHeroTitle').value; settings.aboutText=document.getElementById('setAboutText').value; settings.hours=document.getElementById('setHours').value; settings.phone=document.getElementById('setPhone').value; save(LS_SET,settings); document.getElementById('aboutText').textContent=settings.aboutText; document.getElementById('hoursText').textContent=settings.hours; document.getElementById('hours2').textContent=settings.hours; document.getElementById('phoneText').textContent=settings.phone; toast('Settings saved')};
+document.getElementById('changePass').onclick=()=>{const cur=document.getElementById('curPass').value; const np=document.getElementById('newPass').value; if(cur!==getPass()){alert('Current password wrong'); return} if(!np) return; localStorage.setItem(LS_PASS,np); toast('Password changed'); document.getElementById('curPass').value=''; document.getElementById('newPass').value=''};
+function toast(msg){const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2500)}
+document.getElementById('aboutText').textContent=settings.aboutText;
+document.getElementById('hoursText').textContent=settings.hours;
+document.getElementById('hours2').textContent=settings.hours;
+document.getElementById('phoneText').textContent=settings.phone;
+document.getElementById('searchInput').oninput=renderGrid;
+document.getElementById('prevBtn').onclick=()=>{currentSlide=(currentSlide-1+inventory.length)%inventory.length; updateSlide()};
+document.getElementById('nextBtn').onclick=()=>{currentSlide=(currentSlide+1)%inventory.length; updateSlide()};
+setInterval(()=>{currentSlide=(currentSlide+1)%inventory.length; updateSlide()},5000);
+renderCarousel(); renderGrid(); applyBGs();
+</script>
+</body>
+</html>
